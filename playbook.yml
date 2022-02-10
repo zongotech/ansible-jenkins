@@ -1,7 +1,11 @@
 
 - name: install nginx
-  hosts: all
+  hosts: web
   roles:
     - nginx
+- name: mariadb
+  hosts: db
+  roles:
+    - mariadb
 
 
