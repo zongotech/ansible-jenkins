@@ -15,3 +15,21 @@
     src: index.html.j2
     dest: /var/www/html/index.html
 
+- name: Creation des repertoires pour les hotes virtuel
+    file:
+     path: "/etc/nginx/sites-{{ item }}"
+     state: directory
+     mode: '0755'
+     owner: root
+     group: root
+    loop:
+     - enabled
+     - available
+
+  - name: "Insertion de la ligne include /etc/nginx/sites-enabled/*.conf; dans le fichier nginx.conf"
+    lineinfile:
+     path: /etc/nginx/nginx.conf
+     insertbefore: "^# Setting"
+     line: "    include /etc/nginx/sites-enabled/*.conf;"
+
+
