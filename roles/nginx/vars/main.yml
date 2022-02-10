@@ -1,2 +1,6 @@
 ---
 # vars file for curl
+site:
+  - ipssi.form
+  - ipssi.dev
+  
