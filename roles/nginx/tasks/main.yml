@@ -3,29 +3,13 @@
     name: epel-release
     state: present
     
-- name: install nginx
+- name: install apache server 
   yum: 
-    name: nginx
+    name: httpd
     state: present
-   
-- name: start nginx
+
+- name: "Desactivation et arret du serveur nginx"
   systemd:
     name: nginx
-    state: started
-  
-
-- name: index
-  template:
-    src: index.html.j2
-    dest: /var/www/html/index.html
-
-- name: Creation des repertoires pour les hotes virtuel
-  file:
-    path: "/etc/nginx/sites-{{ item }}"
-    state: directory
-    mode: '0755'
-    owner: root
-    group: root
-  loop:
-   - enabled
-   - available
+    state: stopped
+    enabled: no
