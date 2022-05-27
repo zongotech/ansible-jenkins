@@ -26,6 +26,6 @@
     mode: '0755'
     owner: root
     group: root
-   loop:
-    - enabled
-    - available
+  loop:
+   - enabled
+   - available
