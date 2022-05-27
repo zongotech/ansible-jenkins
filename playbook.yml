@@ -3,9 +3,6 @@
   hosts: web
   roles:
     - nginx
-- name: mariadb
-  hosts: db
-  roles:
-    - mariadb
+
 
 
